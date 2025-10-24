@@ -1,0 +1,44 @@
+[
+    {
+        "id": "17610840782387",
+        "user_id": 1,
+        "trip_id": 2,
+        "seats_count": 1,
+        "total_price": 149.9,
+        "note": "",
+        "created_at": "2025-10-22 00:01:18",
+        "status": "cancelled",
+        "cancelled_at": "2025-10-22 01:45:30"
+    },
+    {
+        "id": "17610841313132",
+        "user_id": 1,
+        "trip_id": 2,
+        "seats_count": 1,
+        "total_price": 149.9,
+        "note": "",
+        "created_at": "2025-10-22 00:02:11",
+        "status": "cancelled",
+        "cancelled_at": "2025-10-22 01:45:36"
+    },
+    {
+        "id": "17610846117707",
+        "user_id": 1,
+        "trip_id": 2,
+        "seats_count": 1,
+        "total_price": 149.9,
+        "note": "",
+        "created_at": "2025-10-22 00:10:11",
+        "status": "cancelled",
+        "cancelled_at": "2025-10-22 01:45:39"
+    },
+    {
+        "id": "17610847033207",
+        "user_id": 1,
+        "trip_id": 2,
+        "seats_count": 1,
+        "total_price": 149.9,
+        "note": "",
+        "created_at": "2025-10-22 00:11:43"
+    }
+]

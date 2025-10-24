@@ -1,0 +1,409 @@
+/* ============= TEMA RENKLERİ (Hafif Koyu Kırmızı) ============= */
+:root {
+    --primary-color: #C62828;        /* Ana kırmızı */
+    --primary-dark: #8E0000;         /* Koyu kırmızı */
+    --primary-light: #FF5F52;        /* Açık kırmızı */
+    --secondary-color: #424242;      /* Gri */
+    --bg-gradient: linear-gradient(135deg, #C62828 0%, #8E0000 100%);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* ============= NAVBAR ============= */
+.bg-primary-custom {
+    background: var(--bg-gradient) !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.btn-register {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 8px 20px !important;
+    transition: all 0.3s ease;
+}
+
+.btn-register:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ============= HERO SECTION ============= */
+.hero-section {
+    background: var(--bg-gradient);
+    padding: 80px 0 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="rgba(255,255,255,0.1)" d="M0,0 C300,80 600,80 900,0 L1200,0 L1200,120 L0,120 Z"></path></svg>') no-repeat bottom;
+    background-size: cover;
+}
+
+.hero-section h1 {
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* ============= ARAMA PANELİ ============= */
+.search-panel-container {
+    margin-top: -60px;
+    position: relative;
+    z-index: 10;
+}
+
+.search-panel {
+    border-radius: 15px;
+    border: none;
+}
+
+.search-panel .card-header {
+    border-radius: 15px 15px 0 0 !important;
+    padding: 1.2rem;
+}
+
+.form-control-lg {
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.form-control-lg:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(198, 40, 40, 0.25);
+}
+
+.btn-primary-custom {
+    background: var(--bg-gradient);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(198, 40, 40, 0.4);
+}
+
+#swapBtn {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+}
+
+#swapBtn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* ============= SEFER KARTLARI ============= */
+.trip-card {
+    border: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.trip-card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+}
+
+.trip-card .card-header {
+    background: var(--bg-gradient);
+    color: white;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+/* ============= FOOTER ============= */
+footer {
+    margin-top: 100px;
+}
+
+/* ============= GENEL ============= */
+.shadow-lg {
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15) !important;
+}
+
+/* Loading spinner */
+.spinner-border {
+    color: var(--primary-color);
+}
+
+/* Badge'ler */
+.badge {
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0 100px 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    #swapBtn {
+        margin: 10px 0;
+    }
+}
+
+/* ============= AUTH PAGES (Login/Register) ============= */
+
+.auth-page {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+.auth-icon {
+    width: 100px;
+    height: 100px;
+    background: var(--bg-gradient);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    box-shadow: 0 10px 30px rgba(198, 40, 40, 0.3);
+}
+
+.auth-card {
+    border-radius: 20px;
+    border: none;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.auth-card .form-control-lg {
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    padding: 12px 16px;
+}
+
+.auth-card .form-control-lg:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(198, 40, 40, 0.15);
+}
+
+.auth-card .input-group .btn {
+    border-radius: 0 12px 12px 0;
+}
+
+/* Şifre göster/gizle butonu */
+#togglePassword {
+    border-left: none;
+}
+
+#togglePassword:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.divider span {
+    padding: 0 10px;
+    color: #999;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Outline Button */
+.btn-outline-primary-custom {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary-custom:hover {
+    background: var(--bg-gradient);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Text color */
+.text-primary-custom {
+    color: var(--primary-color) !important;
+}
+
+.text-primary-custom:hover {
+    color: var(--primary-dark) !important;
+}
+
+/* Loading state */
+.btn-primary-custom:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Checkbox */
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Alert modifications */
+.alert {
+    border-radius: 12px;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .auth-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+    }
+    
+    .auth-card {
+        border-radius: 15px;
+    }
+}
+
+/* Hover card effect */
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ============= KOLTUK SEÇİMİ ============= */
+.seat-map {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.seat-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.seat {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.seat:hover:not(.occupied):not(.driver) {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.seat.available {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    border-color: #45a049;
+}
+
+.seat.selected {
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    color: white;
+    border-color: #1976D2;
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(33, 150, 243, 0.5);
+}
+
+.seat.occupied {
+    background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+    color: white;
+    border-color: #d32f2f;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.seat.driver {
+    background: linear-gradient(135deg, #9E9E9E 0%, #757575 100%);
+    cursor: not-allowed;
+}
+
+.seat.aisle {
+    background: transparent;
+    border: none;
+    cursor: default;
+}
+
+.seat-legend {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legend-seat {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.bus-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.selected-seats-info {
+    background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}

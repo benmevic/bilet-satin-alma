@@ -1,0 +1,11 @@
+
+services:
+  web:
+    build: .
+    container_name: yavuzlar-bilet-app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./database:/var/www/html/database
+      - ./uploads:/var/www/html/uploads
+    restart: unless-stopped

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="veritabani.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2439"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="Booked_Seats" custom_title="0" dock_id="1" table="4,12:mainBooked_Seats"/><dock_state state="000000ff00000000fd00000001000000020000023600000215fc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000000002360000011e00ffffff000002360000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Booked_Seats" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="35"/><column index="2" value="58"/><column index="3" value="84"/><column index="4" value="71"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">-- Kullanıcılar tablosu
+CREATE TABLE User (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    full_name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    role TEXT NOT NULL CHECK (role IN ('user', 'company', 'admin')),
+    password TEXT NOT NULL,
+    company_id INTEGER,
+    balance INTEGER DEFAULT 800,
+    created_at TIMESTAMP DEFAULT (datetime('now', 'localtime')),
+    FOREIGN KEY (company_id) REFERENCES Bus_Company(id)
+);
+
+-- Otobüs firmaları tablosu
+CREATE TABLE Bus_Company (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT UNIQUE NOT NULL,
+    logo_path TEXT,
+    created_at TIMESTAMP DEFAULT (datetime('now', 'localtime'))
+);
+
+-- Kuponlar tablosu
+CREATE TABLE Coupons (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    code TEXT NOT NULL,
+    discount REAL NOT NULL,
+    usage_limit INTEGER NOT NULL,
+    expire_date DATETIME NOT NULL,
+    created_at TIMESTAMP DEFAULT (datetime('now', 'localtime'))
+);
+
+-- Kullanıcı-Kupon ilişkisi
+CREATE TABLE User_Coupons (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    coupon_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT (datetime('now', 'localtime')),
+    FOREIGN KEY (coupon_id) REFERENCES Coupons(id),
+    FOREIGN KEY (user_id) REFERENCES User(id)
+);
+
+-- Seferler tablosu
+CREATE TABLE Trips (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    company_id INTEGER NOT NULL,
+    destination_city TEXT NOT NULL,
+    arrival_time DATETIME NOT NULL,
+    departure_time DATETIME NOT NULL,
+    departure_city TEXT NOT NULL,
+    price INTEGER NOT NULL,
+    capacity INTEGER NOT NULL,
+    created_date TIMESTAMP DEFAULT (datetime('now', 'localtime')),
+    FOREIGN KEY (company_id) REFERENCES Bus_Company(id)
+);
+
+-- Biletler tablosu
+CREATE TABLE Tickets (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    trip_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    status TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active','canceled','expired')),
+    total_price INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT (datetime('now', 'localtime')),
+    FOREIGN KEY (trip_id) REFERENCES Trips(id),
+    FOREIGN KEY (user_id) REFERENCES User(id)
+);
+
+-- Rezerve koltuklar tablosu
+CREATE TABLE Booked_Seats (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ticket_id INTEGER NOT NULL,
+    seat_number INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT (datetime('now', 'localtime')),
+    FOREIGN KEY (ticket_id) REFERENCES Tickets(id)
+);
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
