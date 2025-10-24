@@ -12,7 +12,7 @@ Bu doküman; Docker ile hızlı kurulum, test hesapları ve temel kullanım sena
 - Koltuk seçimi (dolu koltuklar pasif/disabled)
 - Kupon kodu ile indirim
 - Sanal cüzdan (bakiye) ile bilet satın alma
-- Biletlerim ekranı: PDF çıktı alma (QR destekli), iptal
+- Biletlerim ekranı: PDF çıktı alma, iptal
 - İptal/iade kuralı: Kalkışa ≤ 1 saat kala iptal yok, aksi halde ücret iadesi
 - Firma Admin: Kendi firmasına ait sefer CRUD + firma bazlı kupon yönetimi
 - Admin: Firma ve Firma Admin yönetimi + global kuponlar
